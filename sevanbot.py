@@ -158,10 +158,10 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     elif query.data == 'main_menu':
         # Main menu
         buttons = [
-            [InlineKeyboardButton("الدراسة في روسيا", callback_data='study')],
-            [InlineKeyboardButton("العلاج في روسيا", callback_data='medical')],
-            [InlineKeyboardButton("السياحة في روسيا", callback_data='tour')],
-            [InlineKeyboardButton(" المنحة الدراسية في روسيا", callback_data='gift')],
+            [InlineKeyboardButton("الدراسة في روسيا 🧑‍🎓🏫", callback_data='study')],
+            [InlineKeyboardButton("العلاج في روسيا 🏥", callback_data='medical')],
+            [InlineKeyboardButton("السياحة في روسيا ✈️", callback_data='tour')],
+            [InlineKeyboardButton("المنحة الدراسية في روسيا🧑‍🎓", callback_data='gift')],
         ]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.edit_message_text("اهلاً بك! لطفا اختار من القائمة:", reply_markup=reply_markup)
