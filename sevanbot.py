@@ -20,19 +20,21 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if await check_subscription(user_id, context):
         # Show the main menu
         buttons = [
-            [InlineKeyboardButton("الدراسة في روسيا", callback_data='study')],
-            [InlineKeyboardButton("العلاج في روسيا", callback_data='medical')],
-            [InlineKeyboardButton("السياحة في روسيا", callback_data='tour')],
-            [InlineKeyboardButton(" المنحة الدراسية في روسيا", callback_data='gift')],
+            [InlineKeyboardButton("الدراسة في روسيا 🧑‍🎓🏫", callback_data='study')],
+            [InlineKeyboardButton("العلاج في روسيا 🏥", callback_data='medical')],
+            [InlineKeyboardButton("السياحة في روسيا ✈️", callback_data='tour')],
+            [InlineKeyboardButton("المنحة الدراسية في روسيا🧑‍🎓", callback_data='gift')],
         ]
         reply_markup = InlineKeyboardMarkup(buttons)
         await update.message.reply_text("اهلاً بك! لطفا اختار من القائمة:", reply_markup=reply_markup)
     else:
         # Prompt to subscribe to channels
         await update.message.reply_text(
-            "يرجى الاشتراك بالقنوات التالية لتتمكن من استخدام البوت للاجابة على اسئلتكم بعد متابعتهم يرجى الضغط مرة اخرى على  start/ :\n"
+            "🟥 يرجى الاشتراك بالقنوات التالية لتتمكن من استخدام البوت للاجابة على اسئلتكم، بعد متابعتهم يرجى الضغط مرة اخرى على  /start :\n"
             f"1. {CHANNELS[0]}\n"
-            f"2. {CHANNELS[1]}"
+            f"2. {CHANNELS[1]}",
+            parse_mode="HTML"
+
         )
 
 async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -47,6 +49,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
             [InlineKeyboardButton(" تكلفة التقديم والخدمات التي نقدمها", callback_data='study_option_3')],
             [InlineKeyboardButton(" التخصصات والجامعات المتاحة", callback_data='study_multi')],
             [InlineKeyboardButton(" الدول الممنوعة من الدخول الى روسيا", callback_data='study_option_4')],
+            [InlineKeyboardButton("فيديوهات عن الدراسة في روسيا",  url=f"https://www.youtube.com/watch?v=K_mwWQVgbWE&list=PLjJ5OPYDRG2cA8pZiT4te-KabdqcjOjw8")],
             [InlineKeyboardButton("أنا جاهز للتقديم",  url=f"https://t.me/sevanrussia")],
             [InlineKeyboardButton("الرجوع للقائمة", callback_data='main_menu')],
         ]
